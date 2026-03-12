@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buddha Luxe · Sacred Fashion Experience</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌙</text></svg>">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
+    body { background: #0a0a0f; color: white; overflow-x: hidden; position: relative; }
+    
+    /* Luxury gradient background */
+    body::before { 
+      content: ''; 
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      background: radial-gradient(circle at 20% 30%, #2a1e2c, #0a0a0f 80%);
+      z-index: -2; 
+    }
+    
+    /* Golden particles */
+    body::after { 
+      content: ''; 
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      background-image: 
+        radial-gradient(2px at 5% 10%, #ffd700, transparent),
+        radial-gradient(3px at 15% 25%, #ffcc00, transparent),
+        radial-gradient(2px at 25% 40%, #ffe066, transparent),
+        radial-gradient(4px at 35% 15%, #ffd700, transparent),
+        radial-gradient(2px at 45% 60%, #ffaa00, transparent),
+        radial-gradient(3px at 55% 30%, #ffd966, transparent),
+        radial-gradient(2px at 65% 75%, #ffd700, transparent),
+        radial-gradient(4px at 75% 45%, #ffcc00, transparent),
+        radial-gradient(2px at 85% 85%, #ffe066, transparent),
+        radial-gradient(3px at 95% 20%, #ffd700, transparent),
+        radial-gradient(2px at 8% 92%, #ffaa00, transparent),
+        radial-gradient(4px at 18% 68%, #ffd966, transparent),
+        radial-gradient(2px at 28% 82%, #ffd700, transparent),
+        radial-gradient(3px at 38% 52%, #ffcc00, transparent),
+        radial-gradient(2px at 48% 38%, #ffe066, transparent),
+        radial-gradient(4px at 58% 95%, #ffd700, transparent);
+      background-repeat: repeat;
+      background-size: 1200px 1200px;
+      opacity: 0.7;
+      animation: floatParticles 20s infinite linear;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    @keyframes floatParticles {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-100px) rotate(5deg); }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #1a1a1a; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(45deg, #daa520, #ffd700); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: linear-gradient(45deg, #ffd700, #ffaa00); }
+
+    /* Navbar */
+    nav { 
+      position: fixed; 
+      top: 0; 
+      width: 100%; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      padding: 20px 50px; 
+      background: rgba(10, 10, 15, 0.8); 
+      backdrop-filter: blur(15px); 
+      z-index: 1000; 
+      border-bottom: 1px solid rgba(218, 165, 32, 0.3);
+      transition: 0.3s;
+    }
+    
+    nav.scrolled {
+      padding: 15px 50px;
+      background: rgba(5, 5, 8, 0.95);
+    }
+
+    .logo { 
+      font-size: 28px; 
+      font-weight: 700;
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 3px; 
+      background: linear-gradient(135deg, #ffd700, #daa520, #ffd700);
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% { background-position: -200px; }
+      100% { background-position: 200px; }
+    }
+
+    .nav-links { 
+      display: flex; 
+      gap: 40px; 
+      list-style: none; 
+    }
+
+    .nav-links a { 
+      color: white; 
+      text-decoration: none; 
+      font-size: 14px; 
+      font-weight: 500;
+      letter-spacing: 1px;
+      position: relative; 
+      transition: .3s; 
+      padding: 5px 0;
+    }
+
+    .nav-links a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ffd700, #daa520, #ffd700, transparent);
+      transition: 0.4s;
+    }
+
+    .nav-links a:hover { 
+      color: #ffd700; 
+      transform: translateY(-2px);
+    }
+
+    .nav-links a:hover::before { 
+      width: 100%; 
+    }
+
+    .search-form {
+      display: flex;
+      gap: 10px;
+    }
+
+    .search-form input { 
+      padding: 10px 20px; 
+      width: 250px;
+      border-radius: 30px; 
+      border: 1px solid rgba(218, 165, 32, 0.3); 
+      background: rgba(0,0,0,0.3); 
+      color: white; 
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .search-form input:focus {
+      outline: none;
+      border-color: #ffd700;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+      width: 300px;
+    }
+
+    .search-form button { 
+      padding: 10px 20px; 
+      border-radius: 30px; 
+      border: none; 
+      background: linear-gradient(45deg, #daa520, #ffd700); 
+      color: black;
+      font-weight: 600;
+      cursor: pointer; 
+      transition: .3s; 
+    }
+
+    .search-form button:hover { 
+      transform: scale(1.1) translateY(-2px); 
+      box-shadow: 0 10px 30px rgba(255,215,0,0.5); 
+    }
+
+    /* Hero Section */
+    .hero { 
+      min-height: 100vh; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      text-align: center; 
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('img/m.jpg') center/cover;
+      opacity: 0.15;
+      animation: zoomBackground 20s infinite alternate;
+      z-index: -1;
+    }
+
+    @keyframes zoomBackground {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
+
+    .hero-content {
+      max-width: 1000px;
+      padding: 0 20px;
+    }
+
+    .hero h1 { 
+      font-size: 80px; 
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      background: linear-gradient(135deg, #fff, #ffd700, #fff); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+      margin-bottom: 20px; 
+      text-shadow: 0 0 30px rgba(255,215,0,0.3);
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero p { 
+      font-size: 18px;
+      opacity: 0.9; 
+      margin-bottom: 40px; 
+      line-height: 1.8;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeInUp 1s ease 0.2s both;
+    }
+
+    .hero-buttons { 
+      display: flex; 
+      gap: 20px; 
+      justify-content: center; 
+      animation: fadeInUp 1s ease 0.4s both;
+    }
+
+    .btn-primary, .btn-secondary { 
+      padding: 16px 40px; 
+      border-radius: 50px; 
+      border: none; 
+      cursor: pointer; 
+      transition: .3s; 
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary { 
+      background: linear-gradient(45deg, #daa520, #ffd700); 
+      color: black; 
+    }
+
+    .btn-secondary { 
+      background: transparent; 
+      border: 2px solid #ffd700; 
+      color: white; 
+    }
+
+    .btn-primary::before, .btn-secondary::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .btn-primary:hover::before, .btn-secondary:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn-primary:hover, .btn-secondary:hover { 
+      transform: translateY(-5px); 
+      box-shadow: 0 20px 40px rgba(255,215,0,0.4); 
+    }
+
+    /* Floating Stats */
+    .stats-container {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-top: 60px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+      background: url('img/5.jpg') center/cover;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(218, 165, 32, 0.2);
+      border-radius: 20px;
+      min-width: 150px;
+      transition: 0.3s;
+      animation: fadeInUp 1s ease 0.6s both;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-10px);
+      border-color: #ffd700;
+      box-shadow: 0 20px 40px rgba(255,215,0,0.2);
+    }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: 700;
+      color: #ffd700;
+      line-height: 1;
+      margin-bottom: 10px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      letter-spacing: 1px;
+      opacity: 0.8;
+    }
+
+    /* Section Titles */
+    .section-title { 
+      text-align: center; 
+      font-size: 48px; 
+      font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 60px; 
+      position: relative; 
+      z-index: 5; 
+    }
+
+    .section-title span { 
+      background: linear-gradient(135deg, #ffd700, #daa520); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+    }
+
+    .section-title::after { 
+      content: '☸'; 
+      position: absolute; 
+      bottom: -30px; 
+      left: 50%; 
+      transform: translateX(-50%); 
+      font-size: 30px;
+      color: #ffd700;
+      opacity: 0.5;
+      animation: rotate 10s infinite linear;
+    }
+
+    @keyframes rotate {
+      from { transform: translateX(-50%) rotate(0deg); }
+      to { transform: translateX(-50%) rotate(360deg); }
+    }
+
+    /* Luxury Cards */
+    .dress-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+      gap: 30px; 
+      max-width: 1400px; 
+      margin: 0 auto; 
+      padding: 0 20px; 
+    }
+
+    .dress-card { 
+      background: url('img/6.jpg') center/cover;
+      backdrop-filter: blur(10px);
+      border-radius: 20px; 
+      overflow: hidden; 
+      transition: .4s; 
+      border: 1px solid rgba(218, 165, 32, 0.2); 
+      position: relative;
+    }
+
+    .dress-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('img/5.jpg') center/cover;
+      transform: translateX(-100%);
+      transition: 0.6s;
+      pointer-events: none;
+    }
+
+    .dress-card:hover::before {
+      transform: translateX(100%);
+    }
+
+    .dress-card:hover { 
+      transform: translateY(-15px); 
+      border-color: #ffd700; 
+      box-shadow: 0 30px 50px rgba(255,215,0,0.3); 
+    }
+
+    .dress-image { 
+      height: 400px; 
+      overflow: hidden; 
+      position: relative;
+    }
+
+    .dress-image::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+    }
+
+    .dress-image img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      transition: .8s; 
+    }
+
+    .dress-card:hover img { 
+      transform: scale(1.15); 
+    }
+
+    .dress-info { 
+      padding: 25px; 
+      text-align: center; 
+      position: relative;
+    }
+
+    .dress-title { 
+      font-size: 22px; 
+      font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 10px; 
+      transition: .3s; 
+    }
+
+    .dress-price { 
+      color: #ffd700; 
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px; 
+    }
+
+    .dress-btn { 
+      padding: 12px 30px; 
+      border: none; 
+      border-radius: 30px; 
+      background: linear-gradient(45deg, #daa520, #ffd700); 
+      color: black;
+      font-weight: 600;
+      cursor: pointer; 
+      transition: .3s; 
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dress-btn:hover { 
+      transform: scale(1.1); 
+      box-shadow: 0 0 30px #ffd700; 
+    }
+
+    /* Heritage Grid */
+    .heritage-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+      gap: 25px; 
+      max-width: 1400px; 
+      margin: 0 auto; 
+      padding: 0 20px; 
+    }
+
+    .heritage-card { 
+      height: 400px; 
+      border-radius: 20px; 
+      overflow: hidden; 
+      position: relative; 
+      border: 1px solid rgba(218,165,32,0.2); 
+      transition: .5s; 
+      cursor: pointer;
+    }
+
+    .heritage-card:hover { 
+      border-color: #ffd700; 
+      box-shadow: 0 0 40px rgba(255,215,0,0.4); 
+      transform: translateY(-10px);
+    }
+
+    .heritage-card img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      transition: .8s; 
+    }
+
+    .heritage-card:hover img { 
+      transform: scale(1.15); 
+    }
+
+    .heritage-overlay { 
+      position: absolute; 
+      bottom: -100px; 
+      left: 0; 
+      right: 0; 
+      padding: 30px; 
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); 
+      transition: .5s;
+    }
+
+    .heritage-card:hover .heritage-overlay {
+      bottom: 0;
+    }
+
+    .heritage-overlay h3 {
+      font-size: 24px;
+      font-family: 'Cormorant Garamond', serif;
+      color: #ffd700;
+      margin-bottom: 10px;
+    }
+
+    /* TikTok Feed */
+    .tiktok-feed { 
+      max-width: 400px; 
+      margin: 0 auto; 
+      padding: 20px; 
+    }
+
+    .tiktok-card { 
+      background: rgba(20,20,30,0.8); 
+      backdrop-filter: blur(10px);
+      border-radius: 30px; 
+      overflow: hidden; 
+      border: 1px solid rgba(255,215,0,0.3); 
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5); 
+    }
+
+    /* Video Gallery */
+    .expanded-video-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+      gap: 30px; 
+      max-width: 1400px; 
+      margin: 40px auto; 
+      padding: 0 20px; 
+    }
+
+    .expanded-video-card { 
+      background: rgba(20,20,30,0.6); 
+      backdrop-filter: blur(10px);
+      border-radius: 20px; 
+      overflow: hidden; 
+      border: 1px solid rgba(255,215,0,0.2); 
+      transition: 0.4s; 
+    }
+
+    .expanded-video-card:hover { 
+      transform: translateY(-10px) scale(1.02); 
+      border-color: #ffd700; 
+      box-shadow: 0 30px 50px rgba(255,215,0,0.3); 
+    }
+
+    .expanded-video-wrapper { 
+      position: relative; 
+      padding-bottom: 56.25%; 
+      height: 0; 
+      overflow: hidden;
+    }
+
+    .expanded-video-wrapper iframe { 
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      border: none; 
+    }
+
+    /* Contact Form */
+    .contact { 
+      max-width: 700px; 
+      margin: 0 auto 60px; 
+      padding: 0 20px; 
+    }
+
+    .contact form {
+      background: rgba(20,20,30,0.5);
+      backdrop-filter: blur(10px);
+      padding: 50px;
+      border-radius: 30px;
+      border: 1px solid rgba(255,215,0,0.2);
+    }
+
+    .contact input, .contact textarea { 
+      width: 100%; 
+      padding: 15px 20px; 
+      margin-bottom: 20px; 
+      border-radius: 15px; 
+      background: rgba(0,0,0,0.3); 
+      border: 1px solid rgba(255,215,0,0.3); 
+      color: white; 
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .contact input:focus, .contact textarea:focus {
+      outline: none;
+      border-color: #ffd700;
+      box-shadow: 0 0 30px rgba(255,215,0,0.2);
+    }
+
+    .contact button { 
+      width: 100%; 
+      padding: 18px; 
+      border-radius: 50px; 
+      border: none; 
+      background: linear-gradient(45deg, #daa520, #ffd700); 
+      color: black; 
+      font-size: 18px;
+      font-weight: 600;
+      transition: .3s; 
+      cursor: pointer; 
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact button:hover { 
+      transform: translateY(-3px); 
+      box-shadow: 0 20px 40px rgba(255,215,0,0.4); 
+    }
+
+    /* Footer */
+    footer { 
+      background: rgba(0,0,0,0.9); 
+      padding: 60px 40px 20px; 
+      border-top: 1px solid rgba(255,215,0,0.3); 
+    }
+
+    .footer-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      gap: 40px; 
+      max-width: 1400px; 
+      margin: 0 auto; 
+    }
+
+    .footer-section h3 { 
+      color: #ffd700; 
+      margin-bottom: 25px; 
+      font-size: 20px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .footer-section a { 
+      color: #aaa; 
+      text-decoration: none; 
+      transition: .3s; 
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .footer-section a:hover { 
+      color: #ffd700; 
+      transform: translateX(5px); 
+    }
+
+    .social-links { 
+      display: flex; 
+      gap: 15px; 
+      margin-top: 20px; 
+    }
+
+    .social-links a { 
+      width: 45px; 
+      height: 45px; 
+      border-radius: 50%; 
+      background: rgba(255,215,0,0.1); 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      color: #ffd700; 
+      transition: .3s; 
+      font-size: 20px;
+    }
+
+    .social-links a:hover { 
+      background: #ffd700; 
+      color: black; 
+      transform: translateY(-5px) rotate(360deg); 
+    }
+
+    .copyright { 
+      text-align: center; 
+      margin-top: 60px; 
+      padding-top: 30px; 
+      border-top: 1px solid rgba(255,215,0,0.2); 
+      color: #aaa; 
+    }
+
+    /* Back to Top Button - replaced with simple arrow (no telegram) */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #daa520, #ffd700);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: black;
+      font-size: 20px;
+      cursor: pointer;
+      border: none;
+      opacity: 0;
+      transition: 0.3s;
+      z-index: 999;
+      box-shadow: 0 5px 20px rgba(255,215,0,0.4);
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(255,215,0,0.6);
+    }
+
+    /* --- loading screen completely removed --- */
+
+    /* Notification */
+    .notification {
+      position: fixed;
+      top: 100px;
+      right: 30px;
+      background: linear-gradient(135deg, #daa520, #ffd700);
+      color: black;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      transform: translateX(400px);
+      transition: 0.5s;
+      z-index: 1000;
+      box-shadow: 0 10px 30px rgba(255,215,0,0.3);
+    }
+
+    .notification.show {
+      transform: translateX(0);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile Menu */
+    .mobile-menu-btn {
+      display: none;
+      font-size: 24px;
+      color: #ffd700;
+      cursor: pointer;
+    }
+
+    @media (max-width: 1024px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
+      .hero h1 { font-size: 60px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 15px 20px; }
+      .hero h1 { font-size: 40px; }
+      .search-form input { width: 150px; }
+      .search-form input:focus { width: 200px; }
+      .stats-container { gap: 20px; }
+      .section-title { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- NO LOADING SCREEN -->
+
+  <!-- Notification -->
+  <div class="notification" id="notification"></div>
+
+<!-- Back to Top - Telegram icon (alternative) -->
+<a href="https://web.telegram.org/k/#@ipcomtuninpertsalh1_3thankubN17">
+  <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+    <i class="fa-brands fa-telegram"></i>
+  </button>
+</a>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="logo">SHWE 13H VALUE</div>
+    <ul class="nav-links">
+      <li><a href="#home">HOME</a></li>
+      <li><a href="hhhh.html">FASHION</a></li>
+      <li><a href="#heritage">HERITAGE</a></li>
+      <li><a href="#tiktok-feed">TIKTOK</a></li>
+      <li><a href="#youtube-gallery">VIDEOS</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+    <form class="search-form" onsubmit="handleSearch(event)">
+      <input type="search" id="searchInput" placeholder="Search products...">
+      <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+    <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Sacred Style Meets Cosmic Luxury</h1>
+      <p>Discover our exclusive collection where ancient Buddhist heritage inspires contemporary fashion design, under the golden moonlight.</p>
+      <div class="hero-buttons">
+        <a href="hhhh.html">
+          <button class="btn-primary" onclick="smoothScroll('fashion')">Explore Collection</button>
+        </a>
+        <a href="overorder.html">
+          <button class="btn-secondary" onclick="smoothScroll('heritage')">Discover Heritage</button>
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-container">
+        <div class="stat-item">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">EXCLUSIVE DESIGNS</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">50K+</div>
+          <div class="stat-label">HAPPY CUSTOMERS</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">20+</div>
+          <div class="stat-label">COUNTRIES</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fashion Section -->
+  <section id="fashion" style="padding: 100px 0;">
+    <h2 class="section-title">Our <span>Sacred Collection</span></h2>
+    <div class="dress-grid">
+      <div class="dress-card" data-aos="fade-up">
+        <div class="dress-image"><img src="img/1.jpg" alt="Golden Lotus Dress"></div>
+        <div class="dress-info">
+          <h3 class="dress-title">MY HAND</h3>
+          <div class="dress-price">$36</div>
+          <a href="overorder.html"><button class="dress-btn" onclick="showNotification('MY HAND  added to cart')">Add to Cart</button></a>
+        </div>
+      </div>
+      <div class="dress-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="dress-image"><img src="img/2.jpg" alt="Buddha Silk Gown"></div>
+        <div class="dress-info">
+          <h3 class="dress-title">MY HAND</h3>
+          <div class="dress-price">$36</div>
+          <a href="overorder copy.html"><button class="dress-btn" onclick="showNotification('MY HAND added to cart')">Add to Cart</button></a>
+        </div>
+      </div>
+      <div class="dress-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="dress-image"><img src="img/3.jpg" alt="Pagoda Evening Dress"></div>
+        <div class="dress-info">
+          <h3 class="dress-title">MY HAND</h3>
+          <div class="dress-price">$36</div>
+          <a href="overorder.html"><button class="dress-btn" onclick="showNotification('MY HAND added to cart')">Add to Cart</button></a>
+        </div>
+      </div>
+      <div class="dress-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="dress-image"><img src="img/4.jpg" alt="Mandalay Maxi"></div>
+        <div class="dress-info">
+          <h3 class="dress-title">MY HAND</h3>
+          <div class="dress-price">$36</div>
+          <a href="overorder copy.html"><button class="dress-btn" onclick="showNotification('MY HAND added to cart')">Add to Cart</button></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Heritage Section -->
+  <section id="heritage" style="padding: 100px 0;">
+    <h2 class="section-title">Sacred <span>Heritage</span></h2>
+    <div class="heritage-grid">
+      <div class="heritage-card" data-aos="zoom-in">
+        <img src="img/13.jpg" alt="Shwedagon">
+        <div class="heritage-overlay">
+          <h3>MY HAND</h3>
+          <!-- <p>The most sacred Buddhist pagoda in Myanmar</p> -->
+        </div>
+      </div>
+      <div class="heritage-card" data-aos="zoom-in" data-aos-delay="100">
+        <img src="img/14.jpg" alt="Angkor Wat">
+        <div class="heritage-overlay">
+          <h3>MY HAND</h3>
+          <!-- <p>Largest religious monument in the world</p> -->
+        </div>
+      </div>
+      <div class="heritage-card" data-aos="zoom-in" data-aos-delay="200">
+        <img src="img/f1.jpg" alt="Bodh Gaya">
+        <div class="heritage-overlay">
+          <h3>MY HAND</h3>
+          <!-- <p>Where Buddha attained enlightenment</p> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TikTok Feed -->
+  <section id="tiktok-feed">
+    <h2 class="section-title">TikTok <span>@shwe13hvalue</span></h2>
+    <div class="tiktok-feed">
+      <div class="tiktok-card">
+        <div class="video-header">
+          <div class="avatar">S</div>
+          <div class="user-info">
+            <div class="user-name">Shwe 13H Value</div>
+            <div class="user-handle">@shwe13hvalue</div>
+          </div>
+          <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
+        </div>
+        <div class="tiktok-video">
+          <iframe src="https://www.tiktok.com/player/v1/7481200858110217490?autoplay=0" allowfullscreen></iframe>
+        </div>
+        <div class="video-footer">
+          <div class="video-caption">
+            <i class="fas fa-heart" onclick="likeVideo(this)"></i>
+            <span>Sacred fashion collection ✨</span>
+          </div>
+          <div class="video-actions">
+            <i class="fas fa-comment" onclick="showNotification('Comment feature coming soon')"></i>
+            <i class="fas fa-share" onclick="showNotification('Share this video')"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- YouTube Gallery -->
+  <section id="youtube-gallery" style="padding: 100px 0;">
+    <h2 class="section-title">More <span>Videos</span></h2>
+    <div class="expanded-video-grid">
+      <div class="expanded-video-card" data-aos="fade-up">
+        <div class="expanded-video-wrapper">
+          <iframe src="https://www.youtube.com/embed/2E6Z68W9DrQ" title="Sacred Chants" allowfullscreen></iframe>
+        </div>
+        <div class="expanded-video-info">
+          <h3 class="expanded-video-title">Sacred Buddhist Chants</h3>
+          <p class="expanded-video-desc">Experience peace with traditional chanting</p>
+        </div>
+      </div>
+      <div class="expanded-video-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="expanded-video-wrapper">
+          <iframe src="https://www.youtube.com/embed/hCWlor2YjuQ" title="Meditation Music" allowfullscreen></iframe>
+        </div>
+        <div class="expanded-video-info">
+          <h3 class="expanded-video-title">Meditation Music</h3>
+          <p class="expanded-video-desc">Soothing sounds for inner peace</p>
+        </div>
+      </div>
+      <div class="expanded-video-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="expanded-video-wrapper">
+          <iframe src="https://www.youtube.com/embed/1Hz5h8_f0RM" title="Bagan Documentary" allowfullscreen></iframe>
+        </div>
+        <div class="expanded-video-info">
+          <h3 class="expanded-video-title">Bagan - Ancient Temples</h3>
+          <p class="expanded-video-desc">Explore thousands of sacred temples</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop Section -->
+  <section id="shop" style="padding: 100px 0;">
+    <h2 class="section-title">Featured <span>Products</span></h2>
+    <div class="dress-grid">
+      <div class="dress-card" data-aos="fade-right">
+        <div class="dress-image"><img src="img/b2.jpg" alt="Silk Evening Gown"></div>
+        <div class="dress-info">
+          <h3 class="dress-title">MY HAND</h3>
+          <div class="dress-price">$49</div>
+          <a href="hhhh.html"><button class="dress-btn" onclick="showNotification('MY HAND added to cart')">Add to Cart</button>
+        </a>  </div>
+      </div>
+      <div class="dress-card" data-aos="fade-right" data-aos-delay="100">
+        <div class="dress-image"><img src="img/b3.jpg" alt="Traditional Longyi Set"></div>
+        <div class="dress-info">
+          <h3 class="dress-title">MY HAND</h3>
+          <div class="dress-price">$49</div>
+          <a href="hhhh.html"><button class="dress-btn" onclick="showNotification('MY HAND added to cart')">Add to Cart</button></a>
+        </div>
+      </div>
+      <div class="dress-card" data-aos="fade-right" data-aos-delay="200">
+        <div class="dress-image"><img src="img/g1.jpg" alt="Modern Fusion"></div>
+        <div class="dress-info">
+          <h3 class="dress-title">MY HAND </h3>
+          <div class="dress-price">$49</div>
+          <a href="hhhh.html"><button class="dress-btn" onclick="showNotification('MY HAND added to cart')">Add to Cart</button></a>
+        </div>
+      </div>
+      <div class="dress-card" data-aos="fade-right" data-aos-delay="300">
+        <div class="dress-image"><img src="img/g2.jpg" alt="Lotus Designer Gown"></div>
+        <div class="dress-info">
+          <h3 class="dress-title">MY HAND</h3>
+          <div class="dress-price">$49</div>
+          <a href="hhhh.html"><button class="dress-btn" onclick="showNotification('MY HAND   added to cart')">Add to Cart</button></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2 class="section-title">Contact <span>Us</span></h2>
+    <form onsubmit="handleContactSubmit(event)">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Email Address" required>
+      <input type="text" id="subject" placeholder="Subject">
+      <textarea id="message" placeholder="Your Message" style="height:150px;" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h3>Shwe 13H Value</h3>
+        <p>Where sacred heritage meets modern fashion under the golden moonlight.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+          <a href="http://127.0.0.1:5500/fsdgr.html#fashion"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul style="list-style: none;">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#fashion">Fashion</a></li>
+          <li><a href="#heritage">Heritage</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <ul style="list-style: none;">
+          <li><i class="fas fa-map-marker-alt"></i> Yangon, Myanmar</li>
+          <li><i class="fas fa-phone"></i> +95 9781360700</li>
+          <li><i class="fas fa-envelope"></i> shwe13hvalue@gmail.com</li>
+          <li><i class="fas fa-clock"></i> Mon-Sun: 9AM - 8PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2026 Shwe 13H Value. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ffd700;"></i> in Myanmar</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({ 
+      duration: 1000, 
+      once: true,
+      offset: 100
+    });
+
+    // NO loading screen code
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const nav = document.getElementById('navbar');
+      const backToTop = document.getElementById('backToTop');
+      
+      if (window.scrollY > 100) {
+        nav.classList.add('scrolled');
+        backToTop.classList.add('visible');
+      } else {
+        nav.classList.remove('scrolled');
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    // Smooth scroll function
+    function smoothScroll(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Scroll to top
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Notification function
+    function showNotification(message) {
+      const notification = document.getElementById('notification');
+      notification.textContent = message;
+      notification.classList.add('show');
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 3000);
+    }
+
+    // Search function
+    function handleSearch(event) {
+      event.preventDefault();
+      const searchTerm = document.getElementById('searchInput').value;
+      if (searchTerm.trim() !== '') {
+        showNotification(`Searching for "${searchTerm}"...`);
+        document.getElementById('searchInput').value = '';
+      }
+    }
+
+    // Follow button toggle
+    function toggleFollow(btn) {
+      if (btn.textContent === 'Follow') {
+        btn.textContent = 'Following';
+        btn.style.background = '#ffd700';
+        btn.style.color = 'black';
+        showNotification('You are now following @shwe13hvalue');
+      } else {
+        btn.textContent = 'Follow';
+        btn.style.background = 'transparent';
+        btn.style.color = '#ffd700';
+        showNotification('Unfollowed');
+      }
+    }
+
+    // Like video function
+    function likeVideo(heart) {
+      heart.classList.toggle('fas');
+      heart.classList.toggle('far');
+      if (heart.classList.contains('fas')) {
+        heart.style.color = '#ffd700';
+        showNotification('Liked! ❤️');
+      } else {
+        heart.style.color = '';
+      }
+    }
+
+    // Contact form submit
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      showNotification(`Thank you ${name}! We'll contact you soon.`);
+      event.target.reset();
+    }
+
+    // Mobile menu
+    function toggleMobileMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    // Add to cart animation
+    document.querySelectorAll('.dress-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 200);
+      });
+    });
+
+    // Interactive hover for cards
+    document.querySelectorAll('.dress-card').forEach(card => {
+      card.addEventListener('mousemove', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+        
+        this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = '';
+      });
+    });
+
+    // Dynamic year in footer
+    document.querySelector('.copyright p').innerHTML = 
+      `© ${new Date().getFullYear()} Shwe 13H Value. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ffd700;"></i> in Myanmar`;
+  </script>
+</body>
+</html>
